@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#673AB7</color>
+    <color name="colorPrimaryDark">#673AB7</color>
+    <color name="colorAccent">#FFFF</color>
+    <color name="first">#9A7A9C</color>
+    <color name="second">#AC6FE8</color>
+    <color name="third">#8F87FF</color>
+    <color name="four">#6F9AE8</color>
+    <color name="five">#7AE1FF</color>
+    <array name="raindow">
+        <item>@color/first</item>
+        <item>@color/second</item>
+        <item>@color/third</item>
+        <item>@color/four</item>
+        <item>@color/five</item>
+    </array>
+</resources>

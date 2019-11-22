@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.SongPlayingFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_split"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/gl_split"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.cleveroad.audiovisualization.GLAudioVisualizationView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/glAudioVisualizationView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:av_bubblesSize="25dp"
+                app:av_bubblesRandomizeSizes="true"
+                app:av_wavesHeight="60dp"
+                app:av_wavesFooterHeight="170dp"
+                app:av_wavesCount="50"
+                app:av_layersCount="4"
+                app:av_wavesColors="@array/raindow"
+                app:av_backgroundColor="@color/av_color_bg"
+                app:av_bubblesPerLayer="16"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="#673ab7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gl_split">
+
+            <TextView
+                android:id="@+id/tv_songTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="marquee"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="Castle of Glass"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_song_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Song Artist"
+                android:textColor="#e4f1fe"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_songTitle"
+                app:layout_constraintStart_toStartOf="@+id/tv_songTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tv_songTitle" />
+
+            <SeekBar
+                android:id="@+id/sb_songSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_song_artist" />
+
+            <TextView
+                android:id="@+id/tv_startTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:layout_constraintStart_toStartOf="@+id/sb_songSeekBar"
+                app:layout_constraintTop_toBottomOf="@+id/sb_songSeekBar" />
+
+            <TextView
+                android:id="@+id/tv_endTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:layout_constraintEnd_toEndOf="@+id/sb_songSeekBar"
+                app:layout_constraintTop_toBottomOf="@+id/sb_songSeekBar" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_endTime"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_startTime"
+                app:layout_constraintTop_toBottomOf="@id/tv_startTime"
+                app:layout_constraintVertical_bias="0.0">
+
+
+                <ImageButton
+                    android:id="@+id/ib_playPause"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ic_play_circle_filled_black_24dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/ib_previuos"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:adjustViewBounds="true"
+                    android:background="?android:selectableItemBackground"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_skip_previous_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ib_playPause"
+                    app:layout_constraintEnd_toStartOf="@+id/ib_playPause"
+                    app:layout_constraintTop_toTopOf="@+id/ib_playPause" />
+
+                <ImageButton
+                    android:id="@+id/ib_next"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:adjustViewBounds="true"
+                    android:background="?android:selectableItemBackground"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_skip_next_black_24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ib_playPause"
+                    app:layout_constraintStart_toEndOf="@+id/ib_playPause"
+                    app:layout_constraintTop_toTopOf="@+id/ib_playPause" />
+
+                <ImageButton
+                    android:id="@+id/ib_loop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ic_replay_black_24dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@+id/ib_next"
+                    app:layout_constraintStart_toEndOf="@+id/ib_next"
+                    app:layout_constraintTop_toTopOf="@+id/ib_next" />
+
+                <ImageButton
+                    android:id="@+id/ib_suffle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/ic_shuffle_black_24dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@+id/ib_previuos"
+                    app:layout_constraintEnd_toStartOf="@+id/ib_previuos"
+                    app:layout_constraintTop_toTopOf="@+id/ib_previuos" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
