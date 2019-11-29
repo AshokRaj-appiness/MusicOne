@@ -48,7 +48,4 @@ class MainActivity : AppCompatActivity() {
         rv_nav_list.adapter = NavigationAdapter(navList,this)
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
 }
